@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 public class StatusCandidaturaDTO {
     private Integer id;
     private String label;
-    private boolean completed;
+    private boolean approved;
+    private boolean rejected;
     private CandidaturaDTO candidatura;
     private LocalDateTime dataStatus;
 
@@ -19,7 +20,8 @@ public class StatusCandidaturaDTO {
     public StatusCandidaturaDTO(StatusCandidatura statusCandidatura) {
         this.id = statusCandidatura.getIdStatus();
         this.label = statusCandidatura.getLabel();
-        this.completed = statusCandidatura.isCompleted();
+        this.approved = statusCandidatura.isApproved();
+        this.rejected = statusCandidatura.isRejected();
         this.dataStatus = statusCandidatura.getDataStatus();
     }
 

@@ -21,7 +21,8 @@ public class StatusCandidatura {
     private Integer idStatus;
 
     private String label;
-    private boolean completed;
+    private boolean approved;
+    private boolean rejected;
 
     @ManyToOne
     @JoinColumn(name = "id_candidatura", nullable = false)
@@ -35,7 +36,9 @@ public class StatusCandidatura {
     public StatusCandidatura(StatusCandidaturaDTO statusCandidaturaDTO) {
         this.idStatus = statusCandidaturaDTO.getId();
         this.label = statusCandidaturaDTO.getLabel();
-        this.completed = statusCandidaturaDTO.isCompleted();
+        this.approved = statusCandidaturaDTO.isApproved();
+        this.rejected = statusCandidaturaDTO.isRejected();
+
         this.candidatura = new Candidatura(statusCandidaturaDTO.getCandidatura());
 
     }
@@ -43,7 +46,8 @@ public class StatusCandidatura {
 
         this.idStatus = statusCandidatura.getId();
         this.label = statusCandidatura.getLabel();
-        this.completed = statusCandidatura.isCompleted();
+        this.approved = statusCandidatura.isApproved();
+        this.rejected = statusCandidatura.isRejected();
         this.candidatura =candidatura;
 
     }

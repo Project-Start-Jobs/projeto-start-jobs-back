@@ -76,7 +76,8 @@ public class CandidaturaService {
         for (StatusCandidaturaDTO statusDTO : candidaturaDTO.getStatusCandidatura()) {
             StatusCandidatura statusCandidatura = new StatusCandidatura();
             statusCandidatura.setLabel(statusDTO.getLabel());
-            statusCandidatura.setCompleted(statusDTO.isCompleted());
+            statusCandidatura.setApproved(statusDTO.isApproved());
+            statusCandidatura.setRejected(statusDTO.isRejected());
             statusCandidatura.setDataStatus(LocalDateTime.now());
             statusCandidatura.setCandidatura(candidaturaSalva);
 
@@ -135,7 +136,8 @@ public class CandidaturaService {
                         .orElse(null);
 
                 if (statusDTO != null) {
-                    status.setCompleted(statusDTO.isCompleted());
+                    status.setApproved(statusDTO.isApproved());
+                    status.setRejected(statusDTO.isRejected());
                     if (status.getDataStatus() == null) {
                         status.setDataStatus(LocalDateTime.now());
                     }
