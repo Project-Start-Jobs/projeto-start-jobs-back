@@ -182,10 +182,10 @@ As dependências principais do projeto estão listadas no arquivo **`pom.xml`**.
 ---
 
 ## Autores
-**Aesley Soares Nobre**
-**Alexandre Brito**
-**Igor Sobral**
-**Juliana Maria de Sousa Mesquita**
+* **Aesley Soares Nobre**
+* **Alexandre Brito**
+* **Igor Sobral**
+* **Juliana Maria de Sousa Mesquita**
 ---
 
 ## Licença
