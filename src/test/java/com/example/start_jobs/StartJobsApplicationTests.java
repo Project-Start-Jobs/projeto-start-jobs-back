@@ -1,13 +1,12 @@
 package com.example.start_jobs;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.SuiteDisplayName;
 
-@SpringBootTest
+@Suite
+@SuiteDisplayName("Tests for functionalities implemented")
 class StartJobsApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+
 
 }

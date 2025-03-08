@@ -3,10 +3,7 @@ package com.example.start_jobs.entity;
 import com.example.start_jobs.dto.CandidaturaDTO;
 import com.example.start_jobs.dto.StatusCandidaturaDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "status_candidatura")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"label"})
 public class StatusCandidatura {
 
     @Id

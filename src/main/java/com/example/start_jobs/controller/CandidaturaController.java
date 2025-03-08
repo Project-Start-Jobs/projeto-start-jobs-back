@@ -2,8 +2,10 @@ package com.example.start_jobs.controller;
 
 import com.example.start_jobs.dto.CandidaturaDTO;
 import com.example.start_jobs.entity.Candidatura;
+import com.example.start_jobs.exceptions.StatusAlreadyExistsException;
 import com.example.start_jobs.service.CandidaturaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,9 +55,17 @@ public class CandidaturaController {
     public ResponseEntity<CandidaturaDTO> adicionarNovoStatus(
             @PathVariable Long id,
             @RequestBody CandidaturaDTO candidaturaDTO) {
-        CandidaturaDTO updatedCandidatura = candidaturaService.adicionarNovosStatus(id, candidaturaDTO.getStatusCandidatura());
-        return ResponseEntity.ok(updatedCandidatura);
+        try {
+            CandidaturaDTO updatedCandidatura = candidaturaService.adicionarNovosStatus(id, candidaturaDTO.getStatusCandidatura());
+            return ResponseEntity.ok(updatedCandidatura);
+        } catch (StatusAlreadyExistsException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
+
+
     @PutMapping("/update-status/{id}")
     public ResponseEntity<CandidaturaDTO> atualizarStatus(
             @PathVariable Long id,
